@@ -1,4 +1,4 @@
-n^kをO[logk]で求める
+//n^kをO[logk]で求める
 
 long long powmod(long long n, long long k){
     if (k == 0) return 1;
