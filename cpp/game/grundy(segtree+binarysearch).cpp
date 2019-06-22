@@ -2,8 +2,8 @@
 //=> 二分探索(grundy数を二分探索) + segtree(配列のkey:grundy数, value:index)
 //ただしこれが可能なのは, grundy数の値がsegtreeの配列に収まるときだけ!
 
-/*ex) ARC038 C:茶碗と豆 
-         https://beta.atcoder.jp/contests/arc038/tasks/arc038_c 
+/*ex) ARC038 C:茶碗と豆
+         https://beta.atcoder.jp/contests/arc038/tasks/arc038_c
 
 概要：n個の茶碗(0 ~ n-1)があり, i番目にはc[i], a[i]が与えられる。
        ・c[i]:=茶碗 [i - c[i] : i - 1] に豆を移動させることができる。
@@ -62,20 +62,20 @@ struct segtree {
     }
 };
 
-signed main() {	
+signed main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     cin >> n;
     int xors = 0;
     segtree seg(n + 1);
-    seg.update(0, 0); 
+    seg.update(0, 0);
     rep2(i, 1, n) {
         int c, a;
         cin >> c >> a;
         int l = 0, r = i + 1;
         while (r - l > 1) {
             int m = (r + l) / 2;
-            if (seg.get(0, m) >= i - c) l = m;　//[0 : m)が-1を含むときは-1が返ってきてmはgrundy数にはなりえない!
+            if (seg.get(0, m) >= i - c) l = m;//[0 : m)が-1を含むときは-1が返ってきてmはgrundy数にはなりえない!
             else r = m;
         }
         int gr = l;
