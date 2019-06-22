@@ -1,0 +1,14 @@
+ゲーム系の問題の解法
+1 負けの状態を探しそこから初期状態に戻っていく(後ろから考える) 
+   - dfs
+
+2 grundy数を求める
+   grundy数：今の状態のgrundy数は "1手先の状態のgrundy数以外の最小値"
+   grundy数 = nimの石数(一つの山に対する)
+   - grundy(s, t) = grundy(s) ^ grundy(t) (分割系)
+   - 二分探索 + segtreeで高速化
+
+3 adhocな必勝法を見つける
+   -実験
+   -mod
+   -sortして貪欲
